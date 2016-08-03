@@ -10,3 +10,8 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "Enter store name:"
+name = STDIN.gets.chomp
+result = Store.create({name: "#{name}"})
+puts result.errors.full_messages
+

@@ -22,7 +22,7 @@ puts 'CONNECTED'
 
 puts 'Setting up Database (recreating tables) ...'
 
-ActiveRecord::Schema.define do
+ActiveRecord::Schema.define do #This is an example of a Migration
   drop_table :stores if ActiveRecord::Base.connection.table_exists?(:stores)
   drop_table :employees if ActiveRecord::Base.connection.table_exists?(:employees)
   create_table :stores do |t|
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define do
     t.column :annual_revenue, :integer
     t.column :mens_apparel, :boolean
     t.column :womens_apparel, :boolean
-    t.timestamps null: false
+    t.timestamps null: false #This is a macro that adds two columns: created_at and updated_at automatically and are managed by AR
   end
   create_table :employees do |table|
     table.references :store
